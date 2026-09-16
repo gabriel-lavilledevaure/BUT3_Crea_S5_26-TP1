@@ -14,8 +14,8 @@ const Icons = {
   Down: Down,
 };
 
-function getIcon(plateform) {
-  return Icons[plateform] || null;
+function getIcon(platform) {
+  return Icons[platform];
 }
 
 export { getIcon };

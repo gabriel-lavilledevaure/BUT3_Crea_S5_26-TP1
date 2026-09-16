@@ -1,5 +1,4 @@
 function SocialDetails({
-  platform,
   icon: Icon,
   upIcon: UpIcon,
   downIcon: DownIcon,
