@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import Social from "./components/Social";
 import SocialDetails from "./components/SocialDetails";
@@ -7,15 +7,13 @@ import data from "./data/data";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
+
   const totalFollowers = data.reduce((total, card) => total + card.total, 0);
 
-  useEffect(() => {
-    document.documentElement.classList.toggle("dark", darkMode);
-  }, [darkMode]);
-
   return (
-    <main className="bg-background text-text-primary relative min-h-screen">
-      {/* Fond supérieur */}
+    <main
+      className={`${darkMode ? "dark" : ""} bg-background text-text-primary relative min-h-screen`}
+    >
       <div className="bg-top-background absolute top-0 left-0 h-60 w-full rounded-b-3xl" />
 
       <div className="relative mx-auto w-full max-w-6xl px-6 py-10">

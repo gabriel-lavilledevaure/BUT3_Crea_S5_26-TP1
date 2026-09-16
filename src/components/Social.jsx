@@ -1,16 +1,19 @@
 function Social({ platform, icon, user, total, today }) {
   const borderColor = {
-    facebook: "bg-facebook",
-    twitter: "bg-twitter",
-    instagram: "bg-instagram",
-    youtube: "bg-youtube",
+    Facebook: "bg-facebook",
+    Twitter: "bg-twitter",
+    Instagram: "bg-instagram",
+    YouTube: "bg-youtube",
   };
 
   const isPositive = today >= 0;
 
   return (
     <article className="bg-card relative flex h-54 flex-col items-center justify-center overflow-hidden rounded-md px-6">
-      <div className="absolute top-0 left-0 h-1 w-full" />
+      <div
+        className={`absolute top-0 left-0 h-1 w-full ${borderColor[platform]}`}
+        x
+      />
 
       <div className="mb-5 flex items-center gap-2">
         <img className="h-5 w-5" src={icon} alt={`${platform} icon`} />
