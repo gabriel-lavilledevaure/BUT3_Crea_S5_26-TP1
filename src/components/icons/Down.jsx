@@ -11,4 +11,4 @@ function Down() {
   );
 }
 
-export default Facebook;
+export default Down;

@@ -4,6 +4,7 @@ import Social from "./components/Social";
 import SocialDetails from "./components/SocialDetails";
 import Toggle from "./components/Toggle";
 import data from "./data/data";
+import Icons from "./utils/Icons";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -38,7 +39,7 @@ function App() {
             <li key={`social-${card.platform}`}>
               <Social
                 platform={card.platform}
-                icon={card.icon}
+                icon={Icons[card.platform]}
                 user={card.user}
                 total={card.total}
                 today={card.today}
@@ -57,7 +58,9 @@ function App() {
               <li key={`${card.platform}-${stat.indicator}-${index}`}>
                 <SocialDetails
                   platform={card.platform}
-                  icon={card.icon}
+                  icon={Icons[card.platform]}
+                  upIcon={Icons.Up}
+                  downIcon={Icons.Down}
                   indicator={stat.indicator}
                   amount={stat.amount}
                   percentage={stat.percentage}

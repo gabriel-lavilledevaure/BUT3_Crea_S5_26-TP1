@@ -1,4 +1,4 @@
-function Social({ platform, icon, user, total, today }) {
+function Social({ platform, icon: Icon, user, total, today }) {
   const borderColor = {
     Facebook: "bg-facebook",
     Twitter: "bg-twitter",
@@ -12,11 +12,10 @@ function Social({ platform, icon, user, total, today }) {
     <article className="bg-card relative flex h-54 flex-col items-center justify-center overflow-hidden rounded-md px-6">
       <div
         className={`absolute top-0 left-0 h-1 w-full ${borderColor[platform]}`}
-        x
       />
 
       <div className="mb-5 flex items-center gap-2">
-        <img className="h-5 w-5" src={icon} alt={`${platform} icon`} />
+        <Icon />
 
         <span className="text-text-secondary text-xs font-bold">{user}</span>
       </div>
