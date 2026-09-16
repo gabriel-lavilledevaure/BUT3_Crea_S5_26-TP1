@@ -6,12 +6,16 @@ import Twitter from "../components/icons/Twitter";
 import Youtube from "../components/icons/Youtube";
 
 const Icons = {
-  facebook: Facebook,
-  instagram: Instagram,
-  twitter: Twitter,
-  youtube: Youtube,
-  up: Up,
-  down: Down,
+  Facebook: Facebook,
+  Instagram: Instagram,
+  Twitter: Twitter,
+  YouTube: Youtube,
+  Up: Up,
+  Down: Down,
 };
 
-export default Icons;
+function getIcon(plateform) {
+  return Icons[plateform] || null;
+}
+
+export { getIcon };
