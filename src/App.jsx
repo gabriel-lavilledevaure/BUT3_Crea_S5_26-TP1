@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { getIcon } from "./utils/Icons";
+import { motion } from "motion/react";
 
 import Social from "./components/Social";
 import SocialDetails from "./components/SocialDetails";
