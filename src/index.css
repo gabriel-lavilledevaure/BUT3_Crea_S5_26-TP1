@@ -13,17 +13,20 @@
   }
 }
 
-.counter {
+/* Tailwind CSS v4 custom utilities */
+@utility counter {
   animation: counter 2s ease-out;
   counter-reset: number var(--number);
+
+  &::after {
+    content: counter(number);
+  }
 }
 
-.counter::after {
-  content: counter(number);
-}
-
-.counter-k::after {
-  content: counter(number) "k";
+@utility counter-k {
+  &::after {
+    content: counter(number) "k";
+  }
 }
 
 @theme inline {
@@ -129,19 +132,11 @@
   }
 
   body {
-    min-height: 100vh;
-    margin: 0;
+    @apply bg-background text-text-primary font-inter m-0 min-h-screen transition-[background-color,color] duration-[250ms] ease-in-out;
 
-    background-color: var(--background);
-    color: var(--text-primary);
-
-    transition:
-      background-color 0.25s ease,
-      color 0.25s ease;
-  }
-
-  button,
-  input {
-    font: inherit;
+    button,
+    input {
+      font: inherit;
+    }
   }
 }
