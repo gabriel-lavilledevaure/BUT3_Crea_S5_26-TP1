@@ -14,4 +14,4 @@ function Twitter() {
   );
 }
 
-export default Facebook;
+export default Twitter;

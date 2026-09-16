@@ -21,4 +21,4 @@ function Instagram() {
   );
 }
 
-export default Facebook;
+export default Instagram;
