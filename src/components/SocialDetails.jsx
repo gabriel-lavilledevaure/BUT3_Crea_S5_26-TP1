@@ -10,6 +10,10 @@ function SocialDetails({
 
   const TrendIcon = isPositive ? UpIcon : DownIcon;
 
+  const isThousands = amount >= 10000;
+
+  const counterValue = isThousands ? Math.round(amount / 1000) : amount;
+
   return (
     <article className="bg-card flex h-32 flex-col justify-between rounded-md p-6">
       <div className="flex items-center justify-between">
@@ -19,7 +23,12 @@ function SocialDetails({
       </div>
 
       <div className="flex items-end justify-between">
-        <span className="text-3xl font-bold">{amount}</span>
+        <span
+          className={`counter text-3xl font-bold ${
+            isThousands ? "counter-k" : ""
+          }`}
+          style={{ "--number": counterValue }}
+        />
 
         <div className="flex items-center gap-1">
           <TrendIcon />

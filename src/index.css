@@ -1,6 +1,31 @@
 /* index.css */
 @import "tailwindcss";
 
+@property --number {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: false;
+}
+
+@keyframes counter {
+  from {
+    --number: 0;
+  }
+}
+
+.counter {
+  animation: counter 2s ease-out;
+  counter-reset: number var(--number);
+}
+
+.counter::after {
+  content: counter(number);
+}
+
+.counter-k::after {
+  content: counter(number) "k";
+}
+
 @theme inline {
   /* Couleurs sémantiques utilisables avec Tailwind */
   --color-background: var(--background);
@@ -27,8 +52,6 @@
 
 @layer base {
   :root {
-    /* Primitives */
-
     /* États */
     --clr-lime-green: hsl(163, 72%, 41%);
     --clr-bright-red: hsl(356, 69%, 56%);
@@ -36,11 +59,13 @@
     /* Réseaux sociaux */
     --clr-facebook: hsl(208, 92%, 53%);
     --clr-twitter: hsl(203, 89%, 53%);
+
     --clr-instagram: linear-gradient(
       to right,
       hsl(37, 97%, 70%),
       hsl(329, 70%, 58%)
     );
+
     --clr-youtube: hsl(348, 97%, 39%);
 
     /* Light Theme */
@@ -59,6 +84,7 @@
 
     /* Toggle */
     --clr-toggle-light: hsl(230, 22%, 74%);
+
     --clr-toggle-dark: linear-gradient(
       to right,
       hsl(210, 78%, 56%),
@@ -66,7 +92,6 @@
     );
 
     /* Semantics */
-
     --background: var(--clr-white);
     --top-background: var(--clr-very-pale-blue);
     --card-background: var(--clr-light-grayish-blue);
@@ -90,7 +115,6 @@
   }
 
   /* Dark mode */
-
   :root.dark,
   :root[data-theme="dark"],
   .dark {

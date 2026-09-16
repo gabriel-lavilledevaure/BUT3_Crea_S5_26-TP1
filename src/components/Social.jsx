@@ -7,6 +7,9 @@ function Social({ platform, icon: Icon, user, total, today }) {
   };
 
   const isPositive = today >= 0;
+  const isThousands = total >= 10000;
+
+  const counterValue = isThousands ? Math.round(total / 1000) : total;
 
   return (
     <article className="bg-card relative flex h-54 flex-col items-center justify-center overflow-hidden rounded-md px-6">
@@ -20,9 +23,12 @@ function Social({ platform, icon: Icon, user, total, today }) {
         <span className="text-text-secondary text-xs font-bold">{user}</span>
       </div>
 
-      <strong className="text-5xl leading-none font-bold">
-        {total >= 10000 ? `${Math.round(total / 1000)}k` : total}
-      </strong>
+      <strong
+        className={`counter text-5xl leading-none font-bold ${
+          isThousands ? "counter-k" : ""
+        }`}
+        style={{ "--number": counterValue }}
+      />
 
       <span className="text-text-secondary mt-2 text-xs tracking-[0.35em]">
         {platform === "YouTube" ? "SUBSCRIBERS" : "FOLLOWERS"}
